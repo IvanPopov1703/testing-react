@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Montserrat, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    border-bottom: 1px solid gray;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px 15px 30px;
+}
+
+.logo {
+    color: #1976d2;
+    text-decoration: none;
+}
+
+.reg_login_div{
+    display: flex;
+    color: #f57c00;
+    margin-top: auto;
+}
+
+.reg_and_surname {
+    cursor: pointer;
+}
+
+.login {
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.content_main_page {
+    text-align: center;
+    padding-top: 100px;
+}
+
+.text_content_main_page {
+    font-size: 30px;
+}

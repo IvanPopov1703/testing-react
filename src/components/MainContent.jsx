@@ -1,0 +1,23 @@
+import React from 'react';
+import {Link} from "react-router-dom";
+
+const MainContent = () => {
+    return (
+        <div className="content_main_page">
+            <p className="text_content_main_page">
+                <span style={{color: 'blue'}}>MasterTest - платформа для создания тестов</span> <br/>
+                Создавать тесты теперь легко и удобно!
+            </p>
+            <p style={{marginTop: 50}} className="text_content_main_page">
+                Пройдите быструю регистрацию,<br/>
+                чтобы иметь возможность редактировать ваши тесты
+            </p>
+            <button style={{width: 200, marginTop: 50}} className="btn btn-primary">Регистрация</button><br/>
+            <Link to="/create-new-test">
+                <button style={{width: 200, marginTop: 50}} className="btn btn-primary">Создать тест</button>
+            </Link>
+        </div>
+    );
+};
+
+export default MainContent;

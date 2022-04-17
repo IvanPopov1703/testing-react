@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import "../styles/FormLogin.css"
-import AuthenticationService from "../API/AuthenticationService";
+import "../../styles/FormLogin.css"
+import AuthenticationService from "../../API/AuthenticationService";
 
 const FormLogin = (props) => {
 

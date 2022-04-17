@@ -6,10 +6,17 @@
     margin-top: 40px;
 }
 
-.form-create-test {
-    /*border: 1px solid green;*/
+.form-create-question {
+    border: 1px solid green;
     height: 200px;
-    width: 550px;
+    width: 705px;
+    margin: auto;
+}
+
+.form-create-questions{
+    /*border: 1px solid red;*/
+    min-height: 180px;
+    width: 705px;
     margin: auto;
 }
 
@@ -18,8 +25,8 @@
     margin-bottom: 15px;
 }
 
-.btn-creating-questions {
+.btn-crete-test-results {
     margin-top: 20px;
-    margin-left: 80px;
+    margin-left: 250px;
     width: 400px;
 }

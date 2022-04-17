@@ -1,0 +1,26 @@
+.textHead {
+    color: #1976d2;
+    font-weight: 500;
+    margin-bottom: 0;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.form-create-test-results {
+    /*border: 1px solid green;*/
+    min-height: 240px;
+    width: 705px;
+    margin: auto;
+}
+
+.inpScoreFrom {
+    display: inline;
+    width: 70px;
+    margin: 5px;
+}
+
+.inpTitleResults {
+    display: inline;
+    width: 615px;
+    margin: 5px;
+}

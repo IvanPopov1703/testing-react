@@ -8,7 +8,6 @@ const Header = (props) => {
     return (
         <header>
             <h1 className="logo"><Link to="/main">✔ MasterTest</Link></h1>
-            <div><Link to="/about">About</Link></div>
             <div className="reg_login_div">
                 {!props.authenticated
                     ? <h2 className="reg_and_surname">Регистрация</h2>

@@ -1,13 +1,12 @@
 import {useState} from "react";
 import MyModal from "../components/UI/MyModal/MyModal";
-import FormLogin from "../components/FormLogin";
+import FormLogin from "../components/forms/FormLogin";
 import Header from "../components/Header";
 import '../styles/App.css'
 
 function Main() {
 
     const [authenticated, setAuthenticated] = useState(false);
-    console.log("ttt")
 
     /**
      * Открыта/закрыта форма аутентификации

@@ -1,0 +1,17 @@
+.content {
+    /*border: 1px solid green;*/
+    width: 900px;
+    margin: auto;
+}
+
+.btn-creating-questions {
+    /*margin-top: 20px;*/
+    margin-left: 250px;
+    width: 400px;
+}
+
+.btn-save-test {
+    margin-left: 250px;
+    margin-bottom: 50px;
+    width: 400px;
+}

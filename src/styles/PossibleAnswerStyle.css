@@ -1,0 +1,16 @@
+.inpTextAnswer{
+    display: inline;
+    width: 430px;
+    margin-left: 5px;
+    margin-top: 10px;
+}
+
+.inpTextScore{
+    display: inline;
+    width: 70px;
+    margin: 5px;
+}
+
+.labelScore {
+    margin-left: 15px;
+}

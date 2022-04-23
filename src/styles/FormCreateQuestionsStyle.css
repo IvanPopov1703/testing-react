@@ -16,7 +16,7 @@
 .form-create-questions{
     /*border: 1px solid red;*/
     min-height: 180px;
-    width: 705px;
+    width: 706px;
     margin: auto;
 }
 
@@ -29,4 +29,16 @@
     margin-top: 20px;
     margin-left: 250px;
     width: 400px;
+}
+
+.list-answers {
+    /*border: 1px solid green;*/
+    min-height: 75px;
+    width: 706px;
+    margin: auto;
+}
+
+.btn-add-answer {
+    margin-top: 10px;
+    margin-left: 270px;
 }

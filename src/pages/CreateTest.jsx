@@ -5,6 +5,8 @@ import FormCreateTestTitle from "../components/forms/FormCreateTestTitle";
 import FormCreateQuestions from "../components/forms/FormCreateQuestions";
 import {CSSTransition} from "react-transition-group";
 import FormCreateTestResults from "../components/forms/FormCreateTestResults";
+import save from "../service/TestService";
+import TestService from "../service/TestService";
 
 const CreateTest = () => {
 
@@ -22,6 +24,55 @@ const CreateTest = () => {
                 setQuestionsShow(!questionsShow);
             }
         }
+    }
+
+    const saveTest = () => {
+        console.log('Сохраненине теста!');
+        console.log('newTest - ', newTest);
+        TestService.saveTest(newTest).then(r => {
+            console.log('!!!result - ', r.data);
+        }).catch(err => {
+            if (err.response) {
+                console.log("Некорректный запрос!");
+                console.log('err - ', err.response);
+            }
+            console.log("Error - ");
+        });
+    }
+
+    /*const newTest = {
+        testId: -1,
+        name: "",
+        description: "",
+        timeLimit: "",
+        testTime: "",
+        titleBeginningTest: "",
+        descriptionBeginningTest: "",
+        titleEndTest: "",
+        descriptionEndTest: "",
+        url: "",
+        questions: {
+            questionId: -1,
+            text: ""
+        }
+    }*/
+    const newTest = {
+        testId: -1,
+        name: "Name1",
+        description: "Desc1",
+        timeLimit: "Y",
+        testTime: "20",
+        titleBeginningTest: "Tit",
+        descriptionBeginningTest: "Desc11",
+        titleEndTest: "TitEnd",
+        descriptionEndTest: "Desc end",
+        url: "urlr",
+        questions: [
+            {
+                questionId: -1,
+                text: "Text1"
+            }
+        ]
     }
 
     return (
@@ -44,7 +95,7 @@ const CreateTest = () => {
             <CSSTransition classNames='alert' in={resultsShow} timeout={500} unmountOnExit>
                 <FormCreateTestResults/>
             </CSSTransition>
-            <button className="btn btn-primary btn-save-test">
+            <button onClick={() => saveTest()} className="btn btn-primary btn-save-test">
                 Сохранить тест
             </button>
         </div>

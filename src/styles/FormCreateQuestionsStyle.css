@@ -6,17 +6,10 @@
     margin-top: 40px;
 }
 
-.form-create-question {
-    border: 1px solid green;
-    height: 200px;
-    width: 705px;
-    margin: auto;
-}
-
 .form-create-questions{
     /*border: 1px solid red;*/
     min-height: 180px;
-    width: 706px;
+    width: 750px;
     margin: auto;
 }
 
@@ -31,14 +24,8 @@
     width: 400px;
 }
 
-.list-answers {
-    /*border: 1px solid green;*/
-    min-height: 75px;
-    width: 706px;
-    margin: auto;
-}
-
-.btn-add-answer {
-    margin-top: 10px;
-    margin-left: 270px;
+.btn-add-question {
+    margin-left: 230px;
+    margin-top: 20px;
+    width: 230px;
 }

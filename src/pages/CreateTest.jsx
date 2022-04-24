@@ -5,14 +5,36 @@ import FormCreateTestTitle from "../components/forms/FormCreateTestTitle";
 import FormCreateQuestions from "../components/forms/FormCreateQuestions";
 import {CSSTransition} from "react-transition-group";
 import FormCreateTestResults from "../components/forms/FormCreateTestResults";
-import save from "../service/TestService";
-import TestService from "../service/TestService";
 
 const CreateTest = () => {
 
+    /**
+     * Объект для создания нового теста
+     */
+    const [test, setTest] = useState({
+        testId: -1,
+        name: '',
+        description: '',
+        questions: []
+    });
+
+    /**
+     * ID элементов для обращения к формам
+     */
+    const TEXT_QUESTION_ID = "text-question-id-";
+    const LIST_ANSWERS_ID = "list-answers-id-";
+
+    /**
+     * Состояния для анимаций
+     */
     const [testTitleShow, setTestTitleShow] = useState(true);
     const [questionsShow, setQuestionsShow] = useState(true);
     const [resultsShow, setResultsShow] = useState(true);
+
+    /**
+     * Состояние для хранения массива с ID созданных вопросов теста
+     */
+    const [arrQuestionsId, setArrQuestionsId] = useState([1]);
 
     const showFormTest = (formId) => {
         console.log('formId - ', formId);
@@ -26,53 +48,54 @@ const CreateTest = () => {
         }
     }
 
-    const saveTest = () => {
-        console.log('Сохраненине теста!');
-        console.log('newTest - ', newTest);
-        TestService.saveTest(newTest).then(r => {
-            console.log('!!!result - ', r.data);
-        }).catch(err => {
-            if (err.response) {
-                console.log("Некорректный запрос!");
-                console.log('err - ', err.response);
-            }
-            console.log("Error - ");
-        });
+    const printInfo = () => {
+        console.log('\n');
+        console.log('print info:');
+        console.log('object test - ', test);
+        console.log('arrQuestionsId - ', arrQuestionsId);
     }
 
-    /*const newTest = {
-        testId: -1,
-        name: "",
-        description: "",
-        timeLimit: "",
-        testTime: "",
-        titleBeginningTest: "",
-        descriptionBeginningTest: "",
-        titleEndTest: "",
-        descriptionEndTest: "",
-        url: "",
-        questions: {
-            questionId: -1,
-            text: ""
-        }
-    }*/
-    const newTest = {
-        testId: -1,
-        name: "Name1",
-        description: "Desc1",
-        timeLimit: "Y",
-        testTime: "20",
-        titleBeginningTest: "Tit",
-        descriptionBeginningTest: "Desc11",
-        titleEndTest: "TitEnd",
-        descriptionEndTest: "Desc end",
-        url: "urlr",
-        questions: [
-            {
+    /**
+     * Callback метод для добавления нового вопроса
+     * @param questId id добавляемого вопроса
+     */
+    const addQuestionId = (questId) => {
+        setArrQuestionsId([...arrQuestionsId, questId]);
+    }
+
+    /**
+     * Callback метод для удаление вопроса
+     * @param questId id удаляемого вопроса
+     */
+    const deleteQuestionId = (questId) => {
+        setArrQuestionsId(arrQuestionsId.filter(item => item !== questId));
+    }
+
+    /**
+     * Метод для создания нового теста
+     */
+    const saveTest = () => {
+        console.log('Сохранение теста');
+        const arrAllQuestionsAndAnswers = [];
+        let questionsObj = {};
+
+        for (let indexTextQuest = 0; indexTextQuest < arrQuestionsId.length; indexTextQuest++) {
+            let index = arrQuestionsId[indexTextQuest];
+            questionsObj = {
                 questionId: -1,
-                text: "Text1"
+                text: '',
+                answers: []
             }
-        ]
+
+            questionsObj.text = document.getElementById(TEXT_QUESTION_ID + index).value;
+            const inputs = document.getElementById(LIST_ANSWERS_ID + index).getElementsByTagName('input');
+            for (let input = 0; input < inputs.length - 1; input++) {
+                questionsObj.answers.push({answerId: -1, text: inputs[input].value, score: inputs[input + 1].value});
+                input++;
+            }
+            arrAllQuestionsAndAnswers.push(questionsObj);
+        }
+        setTest({...test, name: "Тест 1", description: "Описание теста 1", questions: arrAllQuestionsAndAnswers});
     }
 
     return (
@@ -87,7 +110,7 @@ const CreateTest = () => {
                 Перейти к редактированию вопросов
             </button>
             <CSSTransition classNames='alert' in={questionsShow} timeout={500} unmountOnExit>
-                <FormCreateQuestions/>
+                <FormCreateQuestions deleteQuestionId={deleteQuestionId} addQuestionId={addQuestionId}/>
             </CSSTransition>
             <button className="btn btn-primary btn-crete-test-results">
                 Перейти к редактированию результатов
@@ -98,8 +121,11 @@ const CreateTest = () => {
             <button onClick={() => saveTest()} className="btn btn-primary btn-save-test">
                 Сохранить тест
             </button>
+            <button onClick={() => printInfo()} className="btn btn-primary btn-save-test">
+                printObj
+            </button>
         </div>
     );
-};
+}
 
 export default CreateTest;

@@ -1,0 +1,23 @@
+.panel-question {
+    /*border: 1px solid black;*/
+    min-height: 75px;
+    width: 745px;
+    margin: auto;
+}
+
+.list-answers {
+    /*border: 1px solid green;*/
+    min-height: 75px;
+    width: 706px;
+    /*margin: auto;*/
+}
+
+.btn-add-answer {
+    margin-top: 10px;
+    margin-left: 270px;
+}
+
+.btn-delete-question {
+    float: right;
+    margin-top: 5px;
+}

@@ -3,11 +3,15 @@ import '../styles/PossibleAnswerStyle.css'
 
 const PossibleAnswer = (props) => {
 
-    const answerId = "answer-id-" + props.numAnswer;
-    const scoreId = "score-id-" + props.numAnswer;
+    const answerId = 'answer-id-' + props.numAnswer;
+    const scoreId = 'score-id-' + props.numAnswer;
+
+    const deleteAnswer = () => {
+        props.deleteAnswer(props.answId);
+    }
 
     return (
-        <div>
+        <div className="panel-answer">
             <label htmlFor={answerId}>Вариант ответа:</label>
             <input
                 className="form-control inpTextAnswer"
@@ -20,6 +24,12 @@ const PossibleAnswer = (props) => {
                 type="number"
                 id={scoreId}
             />
+            <button
+                className="btn btn-danger"
+                onClick={() => deleteAnswer()}
+            >
+                X
+            </button>
         </div>
     );
 };

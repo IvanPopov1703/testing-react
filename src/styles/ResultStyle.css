@@ -1,0 +1,22 @@
+.panel-result {
+    /*border: 1px red solid;*/
+    height: 200px;
+}
+
+.inp-score-from {
+    display: inline;
+    width: 70px;
+    margin: 5px;
+}
+
+.inp-title-results {
+    display: inline;
+    width: 620px;
+    margin-left: 7px;
+    margin-top: 5px;
+}
+
+.btn-delete-result {
+    float: right;
+    margin-top: 5px;
+}

@@ -15,14 +15,30 @@ const CreateTest = () => {
         testId: -1,
         name: '',
         description: '',
-        questions: []
+        questions: [],
+        results: []
     });
 
     /**
-     * ID элементов для обращения к формам
+     * id для обращения к элементам вопросов и ответов
      */
     const TEXT_QUESTION_ID = "text-question-id-";
     const LIST_ANSWERS_ID = "list-answers-id-";
+
+    /**
+     * id для обращения к элементам заголовка теста
+     */
+    const CREATE_TEST_NAME_ID = "create-test-name-id";
+    const CREATE_TEST_DESCRIPTION_ID = "create-test-description-id";
+
+    /**
+     * id для обращения к элементам результатов теста
+     */
+    const PANEL_RESULT_ID = "panel-result-id-";
+    const FROM_RESULT_ID = "from-result-id-";
+    const TO_RESULT_ID = "to-result-id-"
+    const TITLE_RESULT_ID = "title-result-id-";
+    const DESCRIPTION_RESULT_ID = "description-result-id-";
 
     /**
      * Состояния для анимаций
@@ -35,6 +51,11 @@ const CreateTest = () => {
      * Состояние для хранения массива с ID созданных вопросов теста
      */
     const [arrQuestionsId, setArrQuestionsId] = useState([1]);
+
+    /**
+     * Состояние для хранения массива с ID созданных результатов теста
+     */
+    const [arrResultsId, setArrResultsId] = useState([1]);
 
     const showFormTest = (formId) => {
         console.log('formId - ', formId);
@@ -72,16 +93,32 @@ const CreateTest = () => {
     }
 
     /**
+     * Callback метод для добавления нового результата
+     * @param resultId id добавляемого результата
+     */
+    const addResultId = (resultId) => {
+        setArrResultsId([...arrResultsId, resultId]);
+    }
+
+    /**
+     * Callback метод для удаление результата
+     * @param resultId id удаляемого результата
+     */
+    const deleteResultId = (resultId) => {
+        setArrResultsId(arrResultsId.filter(item => item !== resultId));
+    }
+
+    /**
      * Метод для создания нового теста
      */
     const saveTest = () => {
         console.log('Сохранение теста');
-        const arrAllQuestionsAndAnswers = [];
-        let questionsObj = {};
+        const tmpArrAllQuestionsAndAnswers = [];
+        const tmpArrResults = [];
 
-        for (let indexTextQuest = 0; indexTextQuest < arrQuestionsId.length; indexTextQuest++) {
-            let index = arrQuestionsId[indexTextQuest];
-            questionsObj = {
+        for (let indexQuestion = 0; indexQuestion < arrQuestionsId.length; indexQuestion++) {
+            let index = arrQuestionsId[indexQuestion];
+            let questionsObj = {
                 questionId: -1,
                 text: '',
                 answers: []
@@ -93,9 +130,28 @@ const CreateTest = () => {
                 questionsObj.answers.push({answerId: -1, text: inputs[input].value, score: inputs[input + 1].value});
                 input++;
             }
-            arrAllQuestionsAndAnswers.push(questionsObj);
+            tmpArrAllQuestionsAndAnswers.push(questionsObj);
         }
-        setTest({...test, name: "Тест 1", description: "Описание теста 1", questions: arrAllQuestionsAndAnswers});
+
+        for (let indexResult = 0; indexResult < arrResultsId.length; indexResult++) {
+            let index = arrResultsId[indexResult];
+            let resultObj = {
+                resultId: -1,
+                from: document.getElementById(FROM_RESULT_ID + index).value,
+                to: document.getElementById(TO_RESULT_ID + index).value,
+                resultTitle: document.getElementById(TITLE_RESULT_ID + index).value,
+                resultDescription: document.getElementById(DESCRIPTION_RESULT_ID + index).value
+            }
+            tmpArrResults.push(resultObj);
+        }
+
+        setTest({
+            ...test,
+            name: document.getElementById(CREATE_TEST_NAME_ID).value,
+            description: document.getElementById(CREATE_TEST_DESCRIPTION_ID).value,
+            questions: tmpArrAllQuestionsAndAnswers,
+            results: tmpArrResults
+        });
     }
 
     return (
@@ -116,7 +172,7 @@ const CreateTest = () => {
                 Перейти к редактированию результатов
             </button>
             <CSSTransition classNames='alert' in={resultsShow} timeout={500} unmountOnExit>
-                <FormCreateTestResults/>
+                <FormCreateTestResults deleteResultId={deleteResultId} addResultId={addResultId}/>
             </CSSTransition>
             <button onClick={() => saveTest()} className="btn btn-primary btn-save-test">
                 Сохранить тест

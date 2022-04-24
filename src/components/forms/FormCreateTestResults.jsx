@@ -1,35 +1,50 @@
-import React from 'react';
+import React, {useState} from 'react';
 import '../../styles/FormCreateResultsStyle.css'
+import ResultTest from "../ResultTest";
 
 const FormCreateTestResults = (props) => {
+
+    /**
+     * Состояние которое хранит существующие id результата
+     */
+    const [results, setResults] = useState([1]);
+
+    /**
+     * Состояние которое генерирует id нового результата
+     */
+    const [numberResult, setNumberResult] = useState(2);
+
+    /**
+     * Метод для добавления результата
+     */
+    const addResult = () => {
+        setResults([...results, numberResult]);
+        props.addResultId(numberResult);
+        setNumberResult(numberResult + 1);
+    }
+
+    /**
+     * Метод для удаления результата
+     * @param resultId id удаляемого результата
+     */
+    const deleteResult = (resultId) => {
+        setResults(results.filter(item => item !== resultId));
+        props.deleteResultId(resultId);
+    }
+
+
     return (
         <div id="formCreateTestResultsId" className="form-create-test-results">
             <h2 className="textHead">Создание теста: результаты</h2>
-            <label htmlFor={props.id}>Результат для суммы баллов от</label>
-            <input
-                className="form-control inpScoreFrom"
-                id={props.id}
-                type="number"
-            />
-            <label htmlFor={props.id}>до</label>
-            <input
-                className="form-control inpScoreFrom"
-                type="number"
-                id={props.id}
-            /><br/>
-            <label htmlFor={props.id}>Заголовок</label>
-            <input
-                className="form-control inpTitleResults"
-                id={props.id}
-            />
-            <label htmlFor="idTextQuestion">
-                Описание
-            </label>
-            <textarea
-                className="form-control"
-                placeholder="Описание"
-                id="idTextQuestion"
-            />
+            {results.map(el =>
+                <ResultTest key={el} deleteResult={deleteResult} resultId={el} />
+            )}
+            <button
+                className="btn btn-primary btn-add-result"
+                onClick={() => addResult()}
+            >
+                Добавить результат
+            </button>
         </div>
     );
 };

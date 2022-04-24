@@ -31,7 +31,7 @@ const Question = (props) => {
     }
 
     /**
-     * Rollback метод для удаления вопроса
+     * Callback метод для удаления вопроса
      * @param answerId id удаляемого вопроса
      */
     const deleteAnswer = (answerId) => {

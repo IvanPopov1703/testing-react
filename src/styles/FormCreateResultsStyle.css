@@ -1,7 +1,7 @@
 .textHead {
     color: #1976d2;
     font-weight: 500;
-    margin-bottom: 0;
+    margin-bottom: 15px;
     text-align: center;
     margin-top: 40px;
 }
@@ -13,14 +13,9 @@
     margin: auto;
 }
 
-.inpScoreFrom {
-    display: inline;
-    width: 70px;
-    margin: 5px;
-}
-
-.inpTitleResults {
-    display: inline;
-    width: 615px;
-    margin: 5px;
+.btn-add-result {
+    margin-left: 240px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    width: 230px;
 }

@@ -6,6 +6,9 @@ const PossibleAnswer = (props) => {
     const answerId = 'answer-id-' + props.numAnswer;
     const scoreId = 'score-id-' + props.numAnswer;
 
+    /**
+     * Метод для удаления ответа
+     */
     const deleteAnswer = () => {
         props.deleteAnswer(props.answId);
     }

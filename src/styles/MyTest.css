@@ -1,16 +1,34 @@
 .my-test-page {
-    border: 1px solid green;
-    width: 1000px;
+    /*border: 1px solid green;*/
+    width: 100%;
     height: 400px;
-    margin: 30px auto auto;
+    /*margin: 30px auto auto;*/
+    /*background: #eae8e8;*/
 }
 
 .new-test {
-    margin-left: 415px;
+    margin-top: 20px;
+    margin-left: 5px;
+    margin-bottom: 5px;
 }
 
 .content {
-    border: 1px solid green;
-    width: 900px;
+    /*border: 1px solid green;*/
+    width: 100%;
     height: 200px;
+    /*margin-top: 20px;*/
 }
+
+/*.table th, .table td {*/
+/*    border-top: none !important;*/
+/*    border-left: none !important;*/
+/*}*/
+/*.fixed-table-container {*/
+/*    border:0;*/
+/*}*/
+/*.table th {*/
+/*    border-bottom: none !important;*/
+/*}*/
+/*.table:last-child{*/
+/*    border:none !important;*/
+/*}*/

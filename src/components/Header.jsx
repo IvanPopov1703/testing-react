@@ -10,8 +10,14 @@ const Header = (props) => {
             <h1 className="logo"><Link to="/main">✔ MasterTest</Link></h1>
             <div className="reg_login_div">
                 {!props.authenticated
-                    ? <h2 className="reg_and_surname">Регистрация</h2>
-                    : <h2 className="reg_and_surname">Мои тесты ({countTests})</h2>
+                    ?
+                    <h2 className="reg_and_surname">Регистрация</h2>
+                    :
+                    <h2 className="reg_and_surname">
+                        <Link to="/my-test-page">
+                            Мои тесты ({countTests})
+                        </Link>
+                    </h2>
                 }
                 {!props.authenticated
                     ? <h2 onClick={props.modalAuth} className="login">Вход</h2>

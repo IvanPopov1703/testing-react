@@ -10,10 +10,12 @@ const FormCreateTestTitle = () => {
                 type="text"
                 className="form-control inp-create"
                 placeholder="Название теста"
+                id="create-test-name-id"
             />
             <textarea
                 className="form-control"
                 placeholder="Описание теста"
+                id="create-test-description-id"
             />
         </div>
     );

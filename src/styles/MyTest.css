@@ -1,0 +1,16 @@
+.my-test-page {
+    border: 1px solid green;
+    width: 1000px;
+    height: 400px;
+    margin: 30px auto auto;
+}
+
+.new-test {
+    margin-left: 415px;
+}
+
+.content {
+    border: 1px solid green;
+    width: 900px;
+    height: 200px;
+}

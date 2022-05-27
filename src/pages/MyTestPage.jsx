@@ -1,15 +1,19 @@
 import React from 'react';
-import '../styles/MyTest.css'
+import '../styles/MyTestPage.css'
+import MyTest from "../components/MyTest";
 
-const MyTest = (props) => {
+const MyTestPage = (props) => {
     return (
         <div className="my-test-page">
             <button className="btn btn-primary new-test">Создать новый тест</button>
             <div className="content">
-
+                <MyTest />
+                <MyTest />
+                <MyTest />
+                <MyTest />
             </div>
         </div>
     );
 };
 
-export default MyTest;
+export default MyTestPage;

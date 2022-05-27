@@ -5,6 +5,7 @@ import FormCreateTestTitle from "../components/forms/FormCreateTestTitle";
 import FormCreateQuestions from "../components/forms/FormCreateQuestions";
 import {CSSTransition} from "react-transition-group";
 import FormCreateTestResults from "../components/forms/FormCreateTestResults";
+import TestService from "../service/TestService";
 
 const CreateTest = () => {
 
@@ -12,7 +13,7 @@ const CreateTest = () => {
      * Объект для создания нового теста
      */
     const [test, setTest] = useState({
-        testId: -1,
+        testId: 1,
         name: '',
         description: '',
         questions: [],
@@ -127,7 +128,7 @@ const CreateTest = () => {
             questionsObj.text = document.getElementById(TEXT_QUESTION_ID + index).value;
             const inputs = document.getElementById(LIST_ANSWERS_ID + index).getElementsByTagName('input');
             for (let input = 0; input < inputs.length - 1; input++) {
-                questionsObj.answers.push({answerId: -1, text: inputs[input].value, score: inputs[input + 1].value});
+                questionsObj.answers.push({answerId: -1, text: inputs[input].value, answerWeight: inputs[input + 1].value});
                 input++;
             }
             tmpArrAllQuestionsAndAnswers.push(questionsObj);
@@ -137,8 +138,8 @@ const CreateTest = () => {
             let index = arrResultsId[indexResult];
             let resultObj = {
                 resultId: -1,
-                from: document.getElementById(FROM_RESULT_ID + index).value,
-                to: document.getElementById(TO_RESULT_ID + index).value,
+                fromPercent: document.getElementById(FROM_RESULT_ID + index).value,
+                upToPercent: document.getElementById(TO_RESULT_ID + index).value,
                 resultTitle: document.getElementById(TITLE_RESULT_ID + index).value,
                 resultDescription: document.getElementById(DESCRIPTION_RESULT_ID + index).value
             }
@@ -151,6 +152,12 @@ const CreateTest = () => {
             description: document.getElementById(CREATE_TEST_DESCRIPTION_ID).value,
             questions: tmpArrAllQuestionsAndAnswers,
             results: tmpArrResults
+        });
+        console.log('Отправка теста!');
+        TestService.saveTest(test).then(r => {
+            console.log('Результат - ', r);
+        }).catch(err => {
+            console.log('Ошибка - ', err);
         });
     }
 

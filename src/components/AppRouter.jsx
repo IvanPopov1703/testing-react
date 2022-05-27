@@ -4,7 +4,7 @@ import MainContent from "./MainContent";
 import Error from "../pages/Error";
 import CreateTest from "../pages/CreateTest";
 import FormCreateQuestions from "./forms/FormCreateQuestions";
-import MyTest from "../pages/MyTest";
+import MyTestPage from "../pages/MyTestPage";
 
 const AppRouter = () => {
     return (
@@ -22,7 +22,7 @@ const AppRouter = () => {
                 <FormCreateQuestions />
             </Route>
             <Route path="/my-test-page">
-                <MyTest />
+                <MyTestPage />
             </Route>
             <Redirect to="/error" />
         </Switch>

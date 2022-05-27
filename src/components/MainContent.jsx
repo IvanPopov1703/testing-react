@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 
 const MainContent = () => {
     return (
-        <div className="content_main_page">
+        <div className="container text-center">
             <p className="text_content_main_page">
                 <span style={{color: 'blue'}}>MasterTest - платформа для создания тестов</span> <br/>
                 Создавать тесты теперь легко и удобно!

@@ -1,16 +1,28 @@
-.my-test-page {
-    border: 1px solid green;
-    width: 1000px;
-    height: 400px;
-    margin: 30px auto auto;
+table {
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 2px;
+    border-color: grey;
 }
 
-.new-test {
-    margin-left: 415px;
+.my-test {
+    border-bottom: 1px solid #e1e8ed;
+    padding: 5px 15px 10px 5px;
+    background-color: #fff;
 }
 
-.content {
-    border: 1px solid green;
-    width: 900px;
-    height: 200px;
+a {
+    text-decoration: none;
+    color: #1976d2;
+}
+
+.grayLink {
+    color: #BBBBBBFF;
+    border-bottom: 1px dotted;
+}
+
+.orangeLink {
+    color: #F57C00FF;
 }

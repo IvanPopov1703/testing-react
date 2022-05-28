@@ -37,3 +37,10 @@ a {
 .text_content_main_page {
     font-size: 30px;
 }
+
+.content_main {
+    /*border: 1px solid green;*/
+    max-width: 89%;
+    min-height: 20px;
+    margin: auto;
+}

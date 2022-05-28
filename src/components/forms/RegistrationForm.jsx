@@ -102,6 +102,15 @@ const RegistrationForm = () => {
                         </div>
                     </div>
                 </div>
+                <div className="row">
+                    <div className="col-md-4 mb-3 w-50">
+                        <label htmlFor="patronymicInpId">Роль</label>
+                        <select className="form-select" aria-label="Default select example">
+                            <option selected>Респондент</option>
+                            <option value="1">Преподаватель</option>
+                        </select>
+                    </div>
+                </div>
                 <button onClick={clickBtnRegistration} style={{marginLeft: '150px'}} className="btn btn-primary" type="submit">Зарегистироваться</button>
             </form>
         </div>

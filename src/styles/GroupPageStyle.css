@@ -1,0 +1,9 @@
+.header-page {
+    /*border: 1px solid green;*/
+    min-height: 40px;
+    background-color: #d0cefc;
+    text-align: match-parent;
+    padding: 3px 0 0 5px;
+    color: #405ee8;
+    font-size: 22px;
+}

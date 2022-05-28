@@ -5,6 +5,7 @@ import Error from "../pages/Error";
 import CreateTest from "../pages/CreateTest";
 import FormCreateQuestions from "./forms/FormCreateQuestions";
 import MyTestPage from "../pages/MyTestPage";
+import GroupPage from "../pages/GroupPage";
 
 const AppRouter = () => {
     return (
@@ -23,6 +24,9 @@ const AppRouter = () => {
             </Route>
             <Route path="/my-test-page">
                 <MyTestPage />
+            </Route>
+            <Route path="/group-page">
+                <GroupPage />
             </Route>
             <Redirect to="/error" />
         </Switch>

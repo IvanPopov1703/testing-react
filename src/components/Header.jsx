@@ -22,6 +22,7 @@ const Header = (props) => {
                         <li className="nav-link px-2 link-secondary fs-4"><Link to="/main">Главная</Link></li>
                         <li className="nav-link px-2 link-secondary fs-4"><Link to="/my-test-page">Мои тесты</Link></li>
                         <li className="nav-link px-2 link-secondary fs-4"><Link to="/error">Личный кабинет</Link></li>
+                        <li className="nav-link px-2 link-secondary fs-4"><Link to="/group-page">Группы</Link></li>
                     </ul>
                     : ""
                 }

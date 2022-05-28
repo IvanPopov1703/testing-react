@@ -12,9 +12,9 @@ const MainContent = () => {
                 Пройдите быструю регистрацию,<br/>
                 чтобы иметь возможность создавать тесты
             </p>
-            <button style={{width: 200, marginTop: 50}} className="btn btn-primary">Регистрация</button><br/>
+            {/*<button style={{width: 250, marginTop: 50, fontSize: 20}} className="btn btn-primary">Регистрация</button><br/>*/}
             <Link to="/create-new-test">
-                <button style={{width: 200, marginTop: 50}} className="btn btn-primary">Создать тест</button>
+                <button style={{width: 250, marginTop: 50, fontSize: 20}} className="btn btn-primary">Создать тест</button>
             </Link>
         </div>
     );
